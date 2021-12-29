@@ -67,6 +67,7 @@ var canvaH = 0;
 let reverb;
 
 window.addEventListener('load', (event) => {
+  setCookie(cookie_name, "disabled", -1);
   w = w*60/100;
 
   h = h*60/100;
@@ -145,7 +146,7 @@ function createMetaTag() {
   let head = select('head');
   meta.parent(head);
 }
-setCookie(cookie_name, "disabled", -1);
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
