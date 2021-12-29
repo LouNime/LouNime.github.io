@@ -101,12 +101,7 @@ function startpresentation()
   getAudioContext().resume();
   setTimeout(function(){
    userStartAudio();
-   if (sloop.isPlaying) {
-
-   } else {
-     userStartAudio();
-     sloop.start();
-   }
+  sloop.start();
 
  }, 2000);
 }
@@ -120,12 +115,7 @@ function tryDaphne()
     setTimeout(function(){
      //your code here
     userStartAudio();
-    if (sloop.isPlaying) {
-
-    } else {
-
       sloop.start();
-    }
    }, 500);
 }
 function windowResized() {
