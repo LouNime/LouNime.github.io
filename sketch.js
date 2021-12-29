@@ -239,7 +239,6 @@ function textFunction()
 
      bpmCreator();
   }
-  ready = true;
 console.log(fondamentale);
 console.log(scala);
 console.log(total_letters.toString());
