@@ -177,6 +177,7 @@ function startpresentation()
   setTimeout(function(){
    //your code here
    textFunction();
+   userStartAudio();
    sloop.start()
   }, 3000);
 }
@@ -185,7 +186,7 @@ function tryDaphne()
     saveText();
     setTimeout(function(){
      //your code here
-
+userStartAudio();
      sloop.start()
    }, 1500);
 }
@@ -827,6 +828,7 @@ function togglePlayPause() {
   if (sloop.isPlaying) {
     sloop.stop();
   } else {
+    userStartAudio();
     sloop.start();
   }
 }
