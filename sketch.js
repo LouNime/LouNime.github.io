@@ -791,9 +791,9 @@ function soundLoop(cycleStartTime) {
    putText(index);
    index++;
   if (index >= notes.length) {
-    synth.stop();
+    //synth.stop();
     this.stop(); // Stop the SoundLoop if we've reached the end of the song
-    synth.dispose();
+    //synth.dispose();
     index=0;
     if(presentation)
     {
