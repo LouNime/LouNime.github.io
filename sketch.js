@@ -831,7 +831,7 @@ function DetunedOsc(){
 
   this.oscOne = new p5.Oscillator(midiToFreq(this.note),this.osctype);
 //  this.oscTwo = new p5.Oscillator(midiToFreq(this.note),'sine');
-  this.oscOne.disconnect();
+  //this.oscOne.disconnect();
   //this.oscTwo.disconnect();
   this.oscOne.start();
 //  this.oscTwo.start();
@@ -852,7 +852,7 @@ function DetunedOsc(){
   }
   this.stop = function(){
     console.log("ci sono");
-    this.oscOne.disconnect();
+  //  this.oscOne.disconnect();
   //  this.oscTwo.disconnect();
   }
   this.dispose = function(){
