@@ -912,6 +912,7 @@ PolySynth.prototype.play = function (){
 PolySynth.prototype.stop = function (){
 
     this.voices[this.poly_counter].stop();
+    console.log("porcogiuda");
     this.poly_counter -= 1;
     this.poly_counter = this.poly_counter % this.num_voices;
 
