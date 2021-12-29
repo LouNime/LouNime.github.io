@@ -106,7 +106,7 @@ function setup()
 
     //var s = new DetunedOsc();
     sloop =  new p5.SoundLoop(soundLoop, "16n");
-    synth = new PolySynth(6, DetunedOsc);
+
     analyzer = new p5.FFT();
   //  reverb = new p5.Reverb();
     //reverb.process(synth, 3, 20);
@@ -746,6 +746,7 @@ function major(a)
 //var cycleStartTime=0;
 
 function soundLoop(cycleStartTime) {
+  synth = new PolySynth(32, DetunedOsc);
   if(notes.length != 0){
     //life();
     get_percentage();
@@ -946,6 +947,8 @@ function DetunedOsc(){
     console.log("ci sono");
     this.oscOne.stop();
     this.oscTwo.stop();
+    this.oscOne.dispose();
+    this.oscTwo.dispose();
   }
 }
 
