@@ -60,11 +60,11 @@ var dec=0;
 var sus = 0;
 var rel = 0;
 var presentation = true;
-var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
+var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu"
 
 var canvaW = 0;
 var canvaH = 0;
-
+let reverb;
 var cookie_name;
 window.addEventListener('load', (event) => {
   //setCookie(cookie_name, "disabled", -1);
@@ -77,7 +77,11 @@ window.addEventListener('load', (event) => {
 
 });
 
+window.addEventListener('reload', (event) => {
+  //setCookie(cookie_name, "disabled", -1);
+  //location.reload(true);
 
+});
 function setup()
 {
 //  createMetaTag();
@@ -827,7 +831,7 @@ function DetunedOsc(){
 
   this.oscOne = new p5.Oscillator(midiToFreq(this.note),this.osctype);
 //  this.oscTwo = new p5.Oscillator(midiToFreq(this.note),'sine');
-  //this.oscOne.disconnect();
+  this.oscOne.disconnect();
   //this.oscTwo.disconnect();
   this.oscOne.start();
 //  this.oscTwo.start();
@@ -848,7 +852,7 @@ function DetunedOsc(){
   }
   this.stop = function(){
     console.log("ci sono");
-  //  this.oscOne.disconnect();
+    this.oscOne.disconnect();
   //  this.oscTwo.disconnect();
   }
   this.dispose = function(){
