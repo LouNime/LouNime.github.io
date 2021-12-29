@@ -574,7 +574,7 @@ function soundLoop(cycleStartTime) {
         synth.setNote(0);
         synth.play(0, 0, cycleStartTime, "16n");
       }
-//  this.interval = "16n";//quaverSeconds/8;
+    this.interval =note_duration[index]/2000;// "16n";//quaverSeconds/8;
     this.bpm = bpm;
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
