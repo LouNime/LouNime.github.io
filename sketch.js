@@ -754,32 +754,32 @@ function soundLoop(cycleStartTime) {
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
 //  for (var i=0; i<notes.length; i++) {
-
+    var quaverSeconds=0;
       //cells[i].active = true;
       if (notes[index]!=2000) {
         // Play sound
         var velocity = note_velocity[index]/127; // Between 0-1
-        var quaverSeconds =note_duration[index]/2000; // 8th note = quaver duration
+        var quaverSeconds =note_duration[index]/20; // 8th note = quaver duration
         //
         var freq1 = midiToFreq(notes[index]);
        var freq=  Number(freq1.toFixed(2))*2;
 
         synth.setNote(freq);
-        synth.play(freq,velocity, cycleStartTime, note_duration[index]/20);
+        synth.play(freq,velocity, cycleStartTime, quaverSeconds);
 
       }
       else {
         var velocity = note_velocity[index]/127; // Between 0-1
-        var quaverSeconds = note_duration[index]; // 8th note = quaver duration
+        var quaverSeconds = note_duration[index]*200; // 8th note = quaver duration
         var freq1 = midiToFreq(notes[index].toFixed(2));
         var freq=  Number(freq1.toFixed(2));
         synth.setNote(0);
-        synth.play(0, 0, cycleStartTime, note_duration[index]*200);
+        synth.play(0, 0, cycleStartTime, quaverSeconds);
       }
 
 //  }
 //  sloop.stop();
-//  this.interval = "8n";//quaverSeconds/8;
+  this.interval = quaverSeconds;//quaverSeconds/8;
   this.bpm = bpm;
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
