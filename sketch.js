@@ -105,7 +105,7 @@ function setup()
 */
 
     //var s = new DetunedOsc();
-//    sloop =  new p5.SoundLoop(soundLoop, "16n");
+    sloop =  new p5.SoundLoop(soundLoop, "16n");
     synth = new PolySynth(8, DetunedOsc);
     analyzer = new p5.FFT();
   //  reverb = new p5.Reverb();
@@ -178,8 +178,7 @@ function startpresentation()
    //your code here
    textFunction();
    userStartAudio();
-   soundLoop();
-  // sloop.start()
+   sloop.start()
   }, 3000);
 }
 function tryDaphne()
@@ -188,8 +187,7 @@ function tryDaphne()
     setTimeout(function(){
      //your code here
 userStartAudio();
-soundLoop();
-  //   sloop.start()
+     sloop.start()
    }, 1500);
 }
 function windowResized() {
@@ -201,7 +199,7 @@ function reset()
 {
   console.log("reset");
   document.getElementById("testouscita").innerHTML="";
-  //sloop =  new p5.SoundLoop(soundLoop, "16n");
+  sloop =  new p5.SoundLoop(soundLoop, "16n");
   synth = new PolySynth(8, DetunedOsc);
   index = 0;
    textout = new Array();
@@ -311,7 +309,7 @@ function bpmCreator()
 	  bpm = total_letters/steps*20;//steps/total_letters*500;
     }
 
-//sloop.bpm = bpm*2;
+sloop.bpm = bpm*2;
 }
 function searchMajor(t)
 {
@@ -641,7 +639,7 @@ function major(a)
 
 //var cycleStartTime=0;
 
-function soundLoop() {
+function soundLoop(cycleStartTime) {
   if(notes.length != 0)
   {
     //life();
@@ -661,11 +659,8 @@ function soundLoop() {
        var freq=  Number(freq1.toFixed(2))*2;
 
         synth.setNote(freq);
-      //  synth.play(freq,velocity, cycleStartTime, "16n");
-      synth.play();
-          setTimeout(function() {
-            //osc.fade(0,0.2);
-        }, note_duration[index]-50);
+        synth.play(freq,velocity, cycleStartTime, "16n");
+
       }
       else {
         var velocity = note_velocity[index]/127; // Between 0-1
@@ -673,27 +668,23 @@ function soundLoop() {
         var freq1 = midiToFreq(notes[index].toFixed(2));
         var freq=  Number(freq1.toFixed(2));
         synth.setNote(0);
-      //  synth.play(0, 0, cycleStartTime, "16n");
-      synth.play();
-        setTimeout(function() {
-          //osc.fade(0,0.2);
-      }, note_duration[index]-50);
+        synth.play(0, 0, cycleStartTime, "16n");
       }
 
 //  }
 //  sloop.stop();
-//  this.interval = "16n";//quaverSeconds/8;
-//  this.bpm = bpm;
+  this.interval = "16n";//quaverSeconds/8;
+  this.bpm = bpm;
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
    putText(index);
    index++;
   if (index >= notes.length) {
     //synth.stop();
-    //this.stop(); // Stop the SoundLoop if we've reached the end of the song
+    this.stop(); // Stop the SoundLoop if we've reached the end of the song
     //synth.dispose();
     index=0;
-  //  cycleStartTime=0;
+    cycleStartTime=0;
     if(presentation)
     {
     //  pageScroll();
