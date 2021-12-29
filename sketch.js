@@ -933,7 +933,7 @@ function DetunedOsc(){
   //this.oscTwo.connect(this.filter);
 
   this.setNote = function(note){
-      this.oscOne.freq(note/2);
+      this.oscOne.freq(note);
       this.oscTwo.freq(note/4);
       this.oscOne.freq(this.oscTwo);
   }
