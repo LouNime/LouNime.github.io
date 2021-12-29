@@ -50,7 +50,7 @@ let  h = window.innerHeight;//document.getElementById("wrapper").offsetHeight;
 var numTimeSteps = 32;
 var timeStepCounter = 0;
 var sloop;
-var synth;
+//var synth;
 var text_to_save;
 var index = 0;
 var released = true;
@@ -93,23 +93,11 @@ function setup()
 
     // cnv.mousePressed(playSound);
     cnv.parent("wrapper");
-/*    saveTextButton = createButton('createMelody');
-    saveTextButton.parent("userinteraction");
-  saveTextButton.mousePressed(saveText);
-  saveTextButton.size(w/4, controlPanelHeight);
 
-  playPauseButton = createButton('PLAY/PAUSE');
-  playPauseButton.parent("userinteraction");
-  playPauseButton.mousePressed(togglePlayPause);
-  playPauseButton.size(w/4, controlPanelHeight);
-*/
-
-    //var s = new DetunedOsc();
     sloop =  new p5.SoundLoop(soundLoop, "16n");
-    synth = new PolySynth(8, DetunedOsc);
+
     analyzer = new p5.FFT();
-  //  reverb = new p5.Reverb();
-    //reverb.process(synth, 3, 20);
+  
     textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
     textPresentation = "Hello! ";
 
@@ -200,7 +188,7 @@ function reset()
   console.log("reset");
   document.getElementById("testouscita").innerHTML="";
   sloop =  new p5.SoundLoop(soundLoop, "16n");
-  synth = new PolySynth(8, DetunedOsc);
+//  synth = new PolySynth(8, DetunedOsc);
   index = 0;
    textout = new Array();
  maximum = 0;
@@ -643,7 +631,7 @@ function soundLoop(cycleStartTime) {
   if(notes.length != 0)
   {
     //life();
-
+  synth = new PolySynth(8, DetunedOsc);
   synth.setAdsr(0.001,0.1,0.2, 0.5);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
