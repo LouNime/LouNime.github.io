@@ -103,7 +103,7 @@ function startpresentation()
    var notes = new Array();
    var note_velocity = new Array();
    var note_duration = new Array();
-   textFunction();
+   textFunction(notes,note_velocity,note_duration);
    userStartAudio();
    sloop.start()
   }, 3000);
@@ -114,6 +114,7 @@ function tryDaphne()
   var note_velocity = new Array();
   var note_duration = new Array();
     saveText();
+    textFunction(notes,note_velocity,note_duration);
     setTimeout(function(){
      //your code here
     userStartAudio();
@@ -143,7 +144,7 @@ function reset()
 steps=0;
 
 }
-function textFunction()
+function textFunction(notes,note_velocity,note_duration)
 {
 
   reset();
@@ -156,9 +157,6 @@ function textFunction()
   else {
        t = text_to_save;
   }
-
-
-  var x;
   if(t==null)
   {
   }
@@ -173,11 +171,13 @@ function textFunction()
   var progression = [0, 2, 4, 5, 7, 9, 11];
   var scala =  searchMajor(total_letters);
   progression = major(scala);
-    for(x=0;x<t.length;x++)
+  console.log(progression);
+
+    for(var x=0;x<t.length;x++)
     {
       if (t.charCodeAt(x)!=null && t.charCodeAt(x)!=127)
       {
-        convertToScale(t.charCodeAt(x));
+        convertToScale(t.charCodeAt(x),notes,note_velocity,note_duration);
       }
     }
 
@@ -629,7 +629,7 @@ function putText(index)
 function saveText(){
 text_to_save=document.getElementById('inDaphne').value;
 localStorage.setItem("text", text_to_save); // save the item
-textFunction();
+
 
 }
 function togglePlayPause() {
