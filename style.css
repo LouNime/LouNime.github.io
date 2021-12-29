@@ -86,7 +86,7 @@ height: auto
 
 .fronte{
   font-family: "Pixeled";
-  text-align: center;
+
   opacity:1;
   visibility: visible;
   background-color: none;
@@ -109,10 +109,7 @@ height: auto
   font-family: "Pixeled";
     width: 50%;
     font-size: 80%;
- position:absolute;
- top: 50%;
- left:50%;
- right:50%;
+ margin:auto;
   display: block;
   transition-duration: 0.4s;
 }
