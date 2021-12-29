@@ -76,7 +76,7 @@ window.addEventListener('load', (event) => {
  canvaH = h*60/100;
  AudioContext = window.AudioContext || window.webkitAudioContext;
  audioCtx = new AudioContext();
- sloop =  new p5.SoundLoop(soundLoop, "16n");
+
 
 });
 
@@ -109,6 +109,7 @@ function setup()
 */
 
     //var s = new DetunedOsc();
+    sloop =  new p5.SoundLoop(soundLoop, "16n");
     synth = new PolySynth(8, DetunedOsc);
     analyzer = new p5.FFT();
 
