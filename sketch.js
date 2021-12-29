@@ -750,7 +750,8 @@ function soundLoop(cycleStartTime) {
     //life();
     get_percentage();
    //getADSR();
-  synth.setAdsr(resonance[index]/200+att/200,resonance[index]/200+dec/200,resonance[index]/200+sus/200,resonance[index]/200+rel/200);
+  //synth.setAdsr(resonance[index]/200+att/200,resonance[index]/200+dec/200,resonance[index]/200+sus/200,resonance[index]/200+rel/200);
+  synth.setAdsr(0.001,0.1,0.2, 0.5);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
 //  for (var i=0; i<notes.length; i++) {
