@@ -919,7 +919,7 @@ function DetunedOsc(){
 
   AudioVoice.call(this);
 
-  this.osctype = 'sine';
+  this.osctype = 'square';
   this.detune = 5;
 
   this.oscOne = new p5.Oscillator(midiToFreq(this.note),this.osctype);
