@@ -305,7 +305,8 @@ function bpmCreator()
     {
 	  bpm = total_letters/steps*30;//steps/total_letters*500;
     }
-sloop.bpm = bpm*2;
+    bpm=300;
+sloop.bpm = 300;//bpm*2;
 }
 function searchMajor(t)
 {
