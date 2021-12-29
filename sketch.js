@@ -71,7 +71,7 @@ function setup()
     cnv.parent("wrapper");
 
     sloop =  new p5.SoundLoop(soundLoop, "16n");
-     synth = new p5.PolySynth();
+     synth = new PolySynth();
     analyzer = new p5.FFT();
 
     textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
