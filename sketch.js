@@ -1,20 +1,13 @@
-var is_major = true;
+
 
 var steps =0;
-
-var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
 let analyzer;
 
 var total_letters=0;
 var scala = 0;
-var fondamentale = 60;
-var progression = [0, 2, 4, 5, 7, 9, 11];
+
 var notes_length=0;
-
 var textout = new Array();
-
-
 var bpm=0;
 
 
@@ -26,15 +19,14 @@ var sloop;
 var synth;
 var text_to_save;
 var index = 0;
-var released = true;
-var maximum = 0;
+
 
 var presentation = true;
 var textPresentation = "";
 
 var canvaW = 0;
 var canvaH = 0;
-var counter=0;
+
 window.addEventListener('load', (event) => {
 
   w = w*60/100;
@@ -135,21 +127,19 @@ function windowResized() {
 }
 function reset()
 {
-  console.log("reset");
+  console.log("cambio");
   document.getElementById("testouscita").innerHTML="";
-  sloop =  new p5.SoundLoop(soundLoop, "16n");
-  synth = new PolySynth(8, DetunedOsc);
+
   index = 0;
    textout = new Array();
- maximum = 0;
- tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
  total_letters=0;
-  notes = new Array();
+  /*notes = new Array();
   note_velocity = new Array();
-  note_duration = new Array();
+  note_duration = new Array();*/
  notes_length=0;
-fondamentale = 60;
-is_major = true;
+
+
 steps=0;
 
 }
@@ -175,6 +165,7 @@ function textFunction()
   else
   {
     total_letters=t.length;
+    var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     for(x=0;x<t.length;x++)
     {
       if (t.charCodeAt(x)!=null && t.charCodeAt(x)!=127)
@@ -183,6 +174,8 @@ function textFunction()
         textout.push(String.fromCharCode(t.charCodeAt(x)));
       }
     }
+
+    var maximum = 0;
     for(var i=0; i<tonalita.length-1; i++)
         {
           console.log(tonalita[i]);
@@ -195,11 +188,13 @@ function textFunction()
 	          maximum = i+1;
            }
         }
+        var fondamentale = 60;
         fondamentale += maximum;
 
 
-
-    searchMajor(total_letters);
+  var progression = [0, 2, 4, 5, 7, 9, 11];
+  var scala =  searchMajor(total_letters);
+  major(scala);
     for(x=0;x<t.length;x++)
     {
       if (t.charCodeAt(x)!=null && t.charCodeAt(x)!=127)
@@ -231,15 +226,16 @@ sloop.bpm = bpm*2;
 }
 function searchMajor(t)
 {
+  var a=0;
 	try{
 
 		if(t%2==0)
 		{
-         is_major= true; a = 0;
+         a = 0;
          }
 	    else if(t%3==0)
         {
-           is_major= false; a = 1;
+            a = 1;
         }
         else if(t%5==0)
         {
@@ -284,7 +280,7 @@ function searchMajor(t)
         else a =0; //maggiore
 
        }catch(e){}
-       scala = a;
+       return a;
 }
 function searchScale(t)
 {
@@ -503,63 +499,62 @@ function major(a)
   {
     if(a==0)
     {
-       is_major=true;progression = [0, 2, 4, 5, 7, 9, 11];
+       progression = [0, 2, 4, 5, 7, 9, 11];
     }
     else if(a==1)
     {
-      is_major=false;progression = [0,2,3,5,7,8,11];
+      progression = [0,2,3,5,7,8,11];
     }
     else if(a==2)
     {
-      is_major=false;progression = [0,2,4,7,9,12,14];
+      progression = [0,2,4,7,9,12,14];
     }
     else if(a==3)
     {
-      is_major=false;progression = [0,3,5,7,10,12,15];
+      progression = [0,3,5,7,10,12,15];
     }
     else if(a==4)
     {
-      is_major=false;progression = [0,3,4,6,8,11,12];
+      progression = [0,3,4,6,8,11,12];
     }
     else if(a==5)
     {
-      is_major=false;progression = [0,2,3,5,6,8,9];
+      progression = [0,2,3,5,6,8,9];
     }
     else if(a==6)
     {
-      is_major=false;progression = [0,1,3,4,6,7,9];
+      progression = [0,1,3,4,6,7,9];
     }
     else if(a==7)
     {
-      is_major=false;progression = [0,2,3,5,6,8,9];
+      progression = [0,2,3,5,6,8,9];
     }
     else if(a==8)
     {
-      is_major=false;progression = [0,2,4,6,8,10,13];
+      progression = [0,2,4,6,8,10,13];
     }
     else if(a==9)
     {
-      is_major=false;progression = [0,2,4,5,7,8,10];
+      progression = [0,2,4,5,7,8,10];
     }
     else if(a==10)
     {
-      is_major=false;progression = [0,2,4,5,7,8,9];
+      progression = [0,2,4,5,7,8,9];
     }
      else if(a==11)
     {
-      is_major=false;progression = [0,1,4,5,7,8,11];
+      progression = [0,1,4,5,7,8,11];
     }
 
   }
-
+   return progression;
 }
 
 
 //var cycleStartTime=0;
 
 function soundLoop(cycleStartTime) {
-  counter++;
-  console.log("cicli di loop "+ counter.toString());
+
   if(notes.length != 0)
   {
     //life();
