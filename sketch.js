@@ -684,6 +684,7 @@ function soundLoop(cycleStartTime) {
     this.stop(); // Stop the SoundLoop if we've reached the end of the song
     //synth.dispose();
     index=0;
+    cycleStartTime=0;
     if(presentation)
     {
     //  pageScroll();
