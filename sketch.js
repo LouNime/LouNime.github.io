@@ -765,7 +765,7 @@ function soundLoop(cycleStartTime) {
        var freq=  Number(freq1.toFixed(2))*2;
 
         synth.setNote(freq);
-        synth.play(freq,velocity, cycleStartTime, note_duration[index]/20);
+        synth.play(freq,velocity, cycleStartTime, "16n");
 
       }
       else {
@@ -774,7 +774,7 @@ function soundLoop(cycleStartTime) {
         var freq1 = midiToFreq(notes[index].toFixed(2));
         var freq=  Number(freq1.toFixed(2));
         synth.setNote(0);
-        synth.play(0, 0, cycleStartTime, note_duration[index]*200);
+        synth.play(0, 0, cycleStartTime, "16n");
       }
 
 //  }
