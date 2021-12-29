@@ -299,7 +299,7 @@ function bpmCreator()
 
 	if(steps==0)
 	{
-		bpm =1/ total_letters*500;
+		bpm =150;
     }
     else
     {
