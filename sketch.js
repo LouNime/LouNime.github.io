@@ -105,8 +105,8 @@ function setup()
     analyzer = new p5.FFT();
     reverb = new p5.Reverb();
     reverb.process(synth, 3, 20);
-    textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu"
-    textPresentation = "Hello! "
+    textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
+    textPresentation = "Hello! ";
 
 }
 
