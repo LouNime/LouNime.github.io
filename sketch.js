@@ -164,7 +164,7 @@ function startpresentation()
   document.getElementById("r").style.animation="fadeIn 1s linear 1 forwards";
   //document.getElementById("r").style.animation="fadeIn2 4s linear";
 
-  audioCtx.resume();
+  getAudioContext().resume();
   setTimeout(function(){
    //your code here
    textFunction();
