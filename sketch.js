@@ -65,9 +65,9 @@ var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parl
 var canvaW = 0;
 var canvaH = 0;
 let reverb;
-
+var cookie_name;
 window.addEventListener('load', (event) => {
-  setCookie(cookie_name, "disabled", -1);
+  //setCookie(cookie_name, "disabled", -1);
   w = w*60/100;
 
   h = h*60/100;
