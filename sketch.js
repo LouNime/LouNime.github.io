@@ -60,7 +60,7 @@ var dec=0;
 var sus = 0;
 var rel = 0;
 var presentation = true;
-var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu"
+var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
 
 var canvaW = 0;
 var canvaH = 0;
@@ -77,11 +77,7 @@ window.addEventListener('load', (event) => {
 
 });
 
-window.addEventListener('reload', (event) => {
-  //setCookie(cookie_name, "disabled", -1);
-  //location.reload(true);
 
-});
 function setup()
 {
 //  createMetaTag();
