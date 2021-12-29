@@ -200,8 +200,6 @@ function textFunction()
   var x;
   if(t==null)
   {
-    acc_found = false;
-    accordatura = new Array();
   }
   else
   {
