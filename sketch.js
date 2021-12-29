@@ -559,7 +559,7 @@ function major(a)
 
 function soundLoop(cycleStartTime) {
   counter++;
-  console.log("cicli di loop "+ counter.tostring());
+  console.log("cicli di loop "+ counter.toString());
   if(notes.length != 0)
   {
     //life();
