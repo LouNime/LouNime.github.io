@@ -746,7 +746,7 @@ function major(a)
 //var cycleStartTime=0;
 
 function soundLoop(cycleStartTime) {
-  synth = new PolySynth(32, DetunedOsc);
+  synth = new PolySynth(16, DetunedOsc);
   if(notes.length != 0){
     //life();
     get_percentage();
