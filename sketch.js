@@ -197,6 +197,7 @@ function windowResized() {
 }
 function reset()
 {
+  console.log("reset");
   document.getElementById("testouscita").innerHTML="";
   sloop =  new p5.SoundLoop(soundLoop, "16n");
   synth = new PolySynth(8, DetunedOsc);
