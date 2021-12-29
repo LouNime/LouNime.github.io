@@ -2,7 +2,7 @@ body {background-color: black;}
 
 @font-face {
     font-family: "Pixeled";
-    src: url("../Pixeled.ttf") format("truetype");
+    src: url("Pixeled.ttf") format("truetype");
 }
 hr {color:#FFFF00; border-style:solid;}
 .row {
