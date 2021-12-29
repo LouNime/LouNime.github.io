@@ -590,7 +590,7 @@ function soundLoop(cycleStartTime) {
   if(notes.length != 0)
   {
     //life();
-  synth = new PolySynth(8, DetunedOsc);
+  let synth = new PolySynth(8, DetunedOsc);
   synth.setAdsr(0.001,0.1,0.2, 0.5);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
