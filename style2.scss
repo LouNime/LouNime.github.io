@@ -1,0 +1,33 @@
+
+.testa {
+border: 5px solid #FFFF00;
+margin: 2%;
+align: center;
+display: flex;
+width: 100%;
+height: auto
+}
+.testa h1
+{
+  color: #fff;
+  font-size:20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font:"Pixeled", sans-serif;
+  background: : linear-gradient(to right, #095fab 10%, #25abe 50%, #57d75b 60%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 1.5s linear infinite;
+  display: inline-block;;
+}
+@keyframes textclip{
+  to {
+    background-position:  200% center;
+  }
+}

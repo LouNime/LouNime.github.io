@@ -1,0 +1,192 @@
+body {background-color: black;}
+
+@font-face {
+    font-family: "Pixeled";
+    src: url("../Pixeled.ttf") format("truetype");
+}
+hr {color:#FFFF00; border-style:solid;}
+.row {
+
+  align: center;
+  margin: 2%;
+display: flex;
+width: 100%;
+height:auto;
+}
+.column2 {
+border: 5px solid #FFFF00;
+background-color: black;
+margin: 2%;
+align: center;
+text-align: center;
+flex:50%;
+
+}
+.column1 {
+
+margin: 2%;
+align: center;
+text-align: center;
+flex:10%;
+
+}
+.column3 {
+border: 5px solid #FFFF00;
+margin: 2%;
+align: center;
+text-align: center;
+flex:30%;
+
+}
+#wrapper {flex:100%; align-items: center;}
+
+.lower {
+/*border: 5px solid #FFFF00;*/
+margin:2%;
+opacity: 0;
+text-align: center;
+width: 100%;
+height:auto;
+visibility: hidden;
+z-index:1;
+
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+.outtext{
+  border-style: none;
+background-color: none;
+disabled = 'true';
+overflow: auto;
+/*font-family: "Pixeled";*/
+margin:2%;
+color: #FFFF00;
+width: 70%;
+height:200px;
+}
+.testa {
+font-family: "Pixeled";
+font-size: 8px;
+margin: 2%;
+text-align: center;
+width: 100%;
+height: auto
+}
+.testa h1
+{
+  color: #FFFF00;
+  display: inline-block;
+}
+
+.fronte{
+  font-family: "Pixeled";
+  text-align: center;
+  opacity:1;
+  visibility: visible;
+  background-color: none;
+  z-index:2;
+  /*animation: fadeOut 5s;
+  animation-delay: 0s;
+  animation-fill-mode:forwards;
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }*/
+}
+@keyframes fadeIn2 {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.fronte button{
+  background-color:#FFFF00;
+  color: black;
+  font-family: "Pixeled";
+
+  display: inline-block;
+  transition-duration: 0.4s;
+}
+.fronte button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+.retro{
+  opacity: 0;
+  visibility: hidden;
+  z-index:1;
+
+}
+
+.tarea{
+ /*font-family: "Pixeled";*/
+  margin: 2%;
+  background-color:#FFFF00;
+  color: black;
+  width: 60%;
+  height: : 50%;
+}
+.lower button{
+  background-color:#FFFF00;
+  color: black;
+  font-family: "Pixeled";
+  display: inline-block;
+  transition-duration: 0.4s;
+}
+.lower button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #ceb937 50%, #292929 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:16s;
+}
+
+.bg3 {
+  animation-duration:20s;
+}
+
+.content {
+  background-color:rgba(255,255,255,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin;
+  position:fixed;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+h1 {
+  font-family:monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-36%);
+  }
+  100% {
+    transform:translateX(36%);
+  }
+}
