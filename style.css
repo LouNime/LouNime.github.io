@@ -108,6 +108,7 @@ height: auto
   color: black;
   font-family: "Pixeled";
     width: 20%;
+    font-size: 80%;
  position:absolute;
  top: 50%;
   display: inline-block;
@@ -161,11 +162,11 @@ height: auto
 
 .bg2 {
   animation-direction:alternate-reverse;
-  animation-duration:16s;
+  animation-duration:1s;
 }
 
 .bg3 {
-  animation-duration:20s;
+  animation-duration:2s;
 }
 
 .content {
@@ -187,9 +188,9 @@ h1 {
 
 @keyframes slide {
   0% {
-    transform:translateX(-36%);
+    transform:translateX(-10%);
   }
   100% {
-    transform:translateX(36%);
+    transform:translateX(10%);
   }
 }
