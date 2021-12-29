@@ -97,13 +97,12 @@ function startpresentation()
   document.getElementById("r").style.visibility = "visible";
   document.getElementById("r").style.animation="fadeIn 1s linear 1 forwards";
   //document.getElementById("r").style.animation="fadeIn2 4s linear";
-  textFunction(notes,note_velocity,note_duration);
+  textFunction();
   getAudioContext().resume();
+
   setTimeout(function(){
-    console.log(notes);
    userStartAudio();
   sloop.start();
-
  }, 2000);
 }
 function tryDaphne()
@@ -112,7 +111,7 @@ function tryDaphne()
   var note_velocity = new Array();
   var note_duration = new Array();*/
     saveText();
-    textFunction(notes,note_velocity,note_duration);
+    textFunction();
     setTimeout(function(){
      //your code here
     userStartAudio();
@@ -142,7 +141,7 @@ function reset()
 steps=0;
 
 }
-function textFunction(notes,note_velocity,note_duration)
+function textFunction()
 {
 
   reset();
@@ -175,7 +174,7 @@ function textFunction(notes,note_velocity,note_duration)
     {
       if (t.charCodeAt(x)!=null && t.charCodeAt(x)!=127)
       {
-        convertToScale(t.charCodeAt(x),notes,note_velocity,note_duration,fondamentale);
+        convertToScale(t.charCodeAt(x),fondamentale);
       }
     }
 
@@ -355,7 +354,7 @@ function searchTonalita(t)
   return maximum;
 }
 
-function convertToScale(x, notes,note_velocity,note_duration, fondamentale)
+function convertToScale(x,fondamentale)
 {
 
   var start_posn=97;
