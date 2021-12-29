@@ -793,6 +793,7 @@ function soundLoop(cycleStartTime) {
   if (index >= notes.length) {
     synth.stop();
     this.stop(); // Stop the SoundLoop if we've reached the end of the song
+    synth.dispose();
     index=0;
     if(presentation)
     {
@@ -860,6 +861,9 @@ AudioVoice.prototype.voicePlay = function (){
 AudioVoice.prototype.stop = function (){
 
 }
+AudioVoice.prototype.dispose = function (){
+
+}
 AudioVoice.prototype.attackPlay = function (){
   this.env.triggerAttack(this.oscillator);
 }
@@ -919,6 +923,9 @@ PolySynth.prototype.setNote = function (note){
 
 PolySynth.prototype.setParams = function (params){
   this.voices[this.poly_counter].setParams(params);
+}
+PolySynth.prototype.dispose = function (){
+  delete this;
 }
 function DetunedOsc(){
 
