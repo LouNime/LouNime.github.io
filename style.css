@@ -109,9 +109,7 @@ height: auto
   font-family: "Pixeled";
 
     font-size: 80%;
- margin-left: auto;
- margin-right: auto;
- margin-top: 30%;
+ margin:auto;
   display: block;
   transition-duration: 0.4s;
 }
