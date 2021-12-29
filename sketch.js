@@ -261,14 +261,15 @@ function searchMajor(t)
        return a;
 }
 
-function searchTonalita(in)
+function searchTonalita(t)
 {
+  var a = t;
   var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   for(j=0;j<in.length;j++)
   {
-    if (in.charCodeAt(j)!=null && in.charCodeAt(j)!=127)
+    if (a.charCodeAt(j)!=null && a.charCodeAt(j)!=127)
     {
-      var x = in.charCodeAt(j)
+      var x = a.charCodeAt(j)
       if (x==65||x==97||x==109||x==77)
     	{
         if(x==65||x==97)
@@ -336,7 +337,7 @@ function searchTonalita(in)
                 {
                   tonalita[11] +=1;
                 }
-      textout.push(String.fromCharCode(in.charCodeAt(j)));
+      textout.push(String.fromCharCode(a.charCodeAt(j)));
     }
   }
   var maximum = 0;
