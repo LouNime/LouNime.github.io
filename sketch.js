@@ -750,12 +750,11 @@ function soundLoop(cycleStartTime) {
     //life();
     get_percentage();
    //getADSR();
-  //synth.setAdsr(resonance[index]/200+att/200,resonance[index]/200+dec/200,resonance[index]/200+sus/200,resonance[index]/200+rel/200);
-  synth.setAdsr(0.1,0.25,1,0.25);
+  synth.setAdsr(resonance[index]/200+att/200,resonance[index]/200+dec/200,resonance[index]/200+sus/200,resonance[index]/200+rel/200);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
 //  for (var i=0; i<notes.length; i++) {
-    var quaverSeconds=0;
+
       //cells[i].active = true;
       if (notes[index]!=2000) {
         // Play sound
@@ -766,21 +765,21 @@ function soundLoop(cycleStartTime) {
        var freq=  Number(freq1.toFixed(2))*2;
 
         synth.setNote(freq);
-        synth.play(freq,velocity, cycleStartTime, "16n");
+        synth.play(freq,velocity, cycleStartTime, note_duration[index]/20);
 
       }
       else {
         var velocity = note_velocity[index]/127; // Between 0-1
-        var quaverSeconds = note_duration[index]/200; // 8th note = quaver duration
+        var quaverSeconds = note_duration[index]; // 8th note = quaver duration
         var freq1 = midiToFreq(notes[index].toFixed(2));
         var freq=  Number(freq1.toFixed(2));
         synth.setNote(0);
-        synth.play(0, 0, cycleStartTime, "8n");
+        synth.play(0, 0, cycleStartTime, note_duration[index]*200);
       }
 
 //  }
 //  sloop.stop();
-  this.interval = quaverSeconds;//quaverSeconds/8;
+  this.interval = "8n";//quaverSeconds/8;
   this.bpm = bpm;
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
