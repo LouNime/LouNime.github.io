@@ -28,7 +28,7 @@ let  h = window.innerHeight;//document.getElementById("wrapper").offsetHeight;
 
 var timeStepCounter = 0;
 var sloop;
-//var synth;
+var synth;
 var text_to_save;
 var index = 0;
 var released = true;
@@ -71,7 +71,7 @@ function setup()
     cnv.parent("wrapper");
 
     sloop =  new p5.SoundLoop(soundLoop, "16n");
-
+     synth = new p5.PolySynth();
     analyzer = new p5.FFT();
 
     textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
@@ -590,7 +590,7 @@ function soundLoop(cycleStartTime) {
   if(notes.length != 0)
   {
     //life();
-  let synth = new PolySynth(8, DetunedOsc);
+
   synth.setAdsr(0.001,0.1,0.2, 0.5);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
