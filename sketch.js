@@ -1,7 +1,5 @@
 var is_major = true;
-let notes = new Array();
-let note_velocity = new Array();
-var note_duration = new Array();
+
 var steps =0;
 
 var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -111,6 +109,9 @@ function startpresentation()
   getAudioContext().resume();
   setTimeout(function(){
    //your code here
+   var notes = new Array();
+   var note_velocity = new Array();
+   var note_duration = new Array();
    textFunction();
    userStartAudio();
    sloop.start()
@@ -118,10 +119,13 @@ function startpresentation()
 }
 function tryDaphne()
 {
+  var notes = new Array();
+  var note_velocity = new Array();
+  var note_duration = new Array();
     saveText();
     setTimeout(function(){
      //your code here
-userStartAudio();
+u    serStartAudio();
      sloop.start()
    }, 1500);
 }
@@ -152,6 +156,7 @@ steps=0;
 }
 function textFunction()
 {
+
   reset();
   var t="";
   if(presentation)
@@ -629,7 +634,6 @@ function putText(index)
 function saveText(){
 text_to_save=document.getElementById('inDaphne').value;
 localStorage.setItem("text", text_to_save); // save the item
-
 textFunction();
 
 }
