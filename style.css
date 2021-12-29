@@ -107,7 +107,8 @@ height: auto
   background-color:#FFFF00;
   color: black;
   font-family: "Pixeled";
-
+ position:absolute;
+ top: 50%;
   display: inline-block;
   transition-duration: 0.4s;
 }
