@@ -111,7 +111,7 @@ height: auto
     font-size: 80%;
  position:absolute;
  top: 50%;
-  display: inline-block;
+  display: block;
   transition-duration: 0.4s;
 }
 .fronte button:hover {
