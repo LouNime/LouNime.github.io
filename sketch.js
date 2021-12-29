@@ -80,11 +80,6 @@ window.addEventListener('load', (event) => {
 
 });
 
-function preload()
-{
-
-}
-
 
 function setup()
 {
