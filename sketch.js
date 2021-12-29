@@ -64,7 +64,7 @@ var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parl
 
 var canvaW = 0;
 var canvaH = 0;
-
+let reverb;
 
 window.addEventListener('load', (event) => {
   w = w*60/100;
@@ -103,7 +103,8 @@ function setup()
     sloop =  new p5.SoundLoop(soundLoop, "16n");
     synth = new PolySynth(6, DetunedOsc);
     analyzer = new p5.FFT();
-
+    reverb = new p5.Reverb();
+    reverb.process(synth, 3, 2);
     textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu"
     textPresentation = "Hello! "
 
@@ -116,6 +117,7 @@ function draw() {
 //  fill(color(175,100,220));
 //  rect(59,59,399,399);
   // analyze the waveform
+  reverb.drywet(0.5);
  waveform = analyzer.waveform();
 
   // draw the shape of the waveform
