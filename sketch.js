@@ -166,7 +166,7 @@ function textFunction(notes,note_velocity,note_duration)
 
     var fondamentale = 60;
     fondamentale += searchTonalita(t);
-
+  console.log(fondamentale);
 
   var progression = [0, 2, 4, 5, 7, 9, 11];
   var scala =  searchMajor(total_letters);
@@ -177,13 +177,13 @@ function textFunction(notes,note_velocity,note_duration)
     {
       if (t.charCodeAt(x)!=null && t.charCodeAt(x)!=127)
       {
-        convertToScale(t.charCodeAt(x),notes,note_velocity,note_duration);
+        convertToScale(t.charCodeAt(x),notes,note_velocity,note_duration,fondamentale);
       }
     }
 
      bpmCreator();
   }
-console.log(fondamentale);
+
 console.log(scala);
 console.log(total_letters.toString());
 
@@ -357,7 +357,7 @@ function searchTonalita(t)
   return maximum;
 }
 
-function convertToScale(x, notes,note_velocity,note_duration)
+function convertToScale(x, notes,note_velocity,note_duration, fondamentale)
 {
 
   var start_posn=97;
