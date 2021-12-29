@@ -964,6 +964,9 @@ function DetunedOsc(){
     this.oscOne.disconnect();
     this.oscTwo.disconnect();
   }
+  this.dispose = function(){
+    delete this;
+  }
 }
 
 DetunedOsc.prototype = Object.create(AudioVoice.prototype);
