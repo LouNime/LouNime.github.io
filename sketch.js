@@ -466,76 +466,22 @@ function convertToScale(x)
      {
        note_duration.push(600);
        note_velocity.push(90);
-       resonance.push(0); frequencyFilter.push(5);
-       type.push(1);
-       vocals++;
+
      }
      else if(x==98||x==99||x==100||x==103||x==112||x==116||x==118)//soft_consonant
      {
        note_duration.push(370);
        note_velocity.push(120);
-       if(x==98||x==112)
-       {labiali++; resonance.push(20); frequencyFilter.push(-8); type.push(1.5);}
-	   else if(x==100||x==116)
-	   {dentali++;resonance.push(20); frequencyFilter.push(-8); type.push(1.5);}
-		else if(x==99||x==103)
-	   {gutturali++;resonance.push(80); frequencyFilter.push(-10); type.push(3);}
-				else
-	   {sibilanti++;resonance.push(100); frequencyFilter.push(-15);type.push(1);}
-       soft_consonant++;
+
      }
      else//hard_consonant
      {
        note_duration.push(220);
        note_velocity.push(110);
-       if(x==120)
-       {dentali++;resonance.push(20); frequencyFilter.push(-8); type.push(1.5);}
-	   else if(x==114||x==108)
-	   {linguali++; resonance.push(40); frequencyFilter.push(-5);type.push(3);}
-		else if(x==113||x==107)
-	   {gutturali++;resonance.push(80); frequencyFilter.push(-10);type.push(3);}
-		else if(x==109||x==110)
-	   {nasali++;resonance.push(10); frequencyFilter.push(-12);type.push(2);}
-				else
-	   {sibilanti++; resonance.push(100); frequencyFilter.push(-15);type.push(1);}
-       hard_consonant++;
+
      }
 
      notes.push(progression[x-start_posn]+fondamentale+octave);
-     if(is_major)
-     {
-	   if(progression[x-start_posn]==0 ||progression[x-start_posn]==3 ||progression[x-start_posn]==4)
-     {
-	    chords.push(0);
-     }
-     else if(progression[x-start_posn]==6)
-     {
-	   chords.push(2);
-     }
-     else
-     {
-	   chords.push(1);
-     }
-     }
-     else
-     {
-	   if(progression[x-start_posn]==0 ||progression[x-start_posn]==3 ||progression[x-start_posn]==4)
-     {
-	    chords.push(1);
-     }
-     else if(progression[x-start_posn]==1)
-     {
-	   chords.push(2);
-     }
-     else
-     {
-	   chords.push(0);
-     }
-     }
-
-     //post(progression[x-start_posn]+fondamentale+octave);
-    //outlet(0,progression[x-start_posn]+fondamentale+octave);
-
   }
   else if(x>=65 && x<=90)
   {
@@ -555,76 +501,23 @@ function convertToScale(x)
      {
        note_duration.push(600);
        note_velocity.push(90);
-       resonance.push(0); frequencyFilter.push(5);
-       type.push(1);
-       vocals++;
+
      }
      else if(x==66||x==67||x==68||x==71||x==80||x==84||x==86)//soft_consonant
      {
        note_duration.push(380);
        note_velocity.push(110);
-       if(x==66||x==80)
-       {labiali++; resonance.push(20); frequencyFilter.push(-8); type.push(1.5);}
-	   else if(x==68||x==84)
-	    {dentali++;resonance.push(20); frequencyFilter.push(-8); type.push(1.5);}
-			else if(x==67||x==71)
-	  {gutturali++;resonance.push(80); frequencyFilter.push(-10);type.push(3);}
-				else
-	    {sibilanti++; resonance.push(100); frequencyFilter.push(-15);type.push(1);}
-       soft_consonant++;
+
      }
      else//hard_consonant
      {
        note_duration.push(220);
        note_velocity.push(120);
-       if(x==88)
-        {dentali++;resonance.push(20); frequencyFilter.push(-8); type.push(1.5);}
-	   else if(x==82||x==76)
-	   {linguali++;resonance.push(40); frequencyFilter.push(-5);type.push(3);}
-			else if(x==81||x==75)
-	  {gutturali++;resonance.push(80); frequencyFilter.push(-10);type.push(3);}
-		else if(x==77||x==78)
-	    {nasali++;resonance.push(10); frequencyFilter.push(-12);type.push(2);}
-			else
-	   {sibilanti++; resonance.push(100); frequencyFilter.push(-150);type.push(1);}
-       hard_consonant++;
+
      }
 
      notes.push(progression[x-start_posn]+fondamentale+octave);
-     //post(progression[x-start_posn]+fondamentale+octave);
-    //outlet(0,progression[x-start_posn]+fondamentale+octave);
-
-    if(is_major)
-     {
-	   if(progression[x-start_posn]==0 ||progression[x-start_posn]==3 ||progression[x-start_posn]==4)
-     {
-	    chords.push(0);
-     }
-     else if(progression[x-start_posn]==6)
-     {
-	   chords.push(2);
-     }
-     else
-     {
-	   chords.push(1);
-     }
-     }
-     else
-     {
-	   if(progression[x-start_posn]==0 ||progression[x-start_posn]==3 ||progression[x-start_posn]==4)
-     {
-	    chords.push(1);
-     }
-     else if(progression[x-start_posn]==1)
-     {
-	   chords.push(2);
-     }
-     else
-     {
-	   chords.push(0);
-     }
-     }
-  }
+    }
   else
 {
 
@@ -632,10 +525,6 @@ function convertToScale(x)
       notes.push(2000);
       note_velocity.push(0);
       note_duration.push(1000);
-      resonance.push(0); frequencyFilter.push(0);
-      type.push(1);
-      chords.push(0);
-
 
 
 }
@@ -750,11 +639,10 @@ function major(a)
 //var cycleStartTime=0;
 
 function soundLoop(cycleStartTime) {
-  if(notes.length != 0){
+  if(notes.length != 0)
+  {
     //life();
-    get_percentage();
-   //getADSR();
-  //synth.setAdsr(resonance[index]/200+att/200,resonance[index]/200+dec/200,resonance[index]/200+sus/200,resonance[index]/200+rel/200);
+
   synth.setAdsr(0.001,0.1,0.2, 0.5);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
@@ -800,12 +688,13 @@ function soundLoop(cycleStartTime) {
     //  pageScroll();
       document.getElementById("userinteraction").style.visibility = "visible";
       setVisibilityToLower();
-        presentation = false;
+      presentation = false;
     }
   }
 
 }
 }
+
 function setVisibilityToLower()
 {
   document.getElementById("userinteraction").style.animation="fadeIn 4s linear 1s 1 forwards";
