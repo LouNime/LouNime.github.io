@@ -574,7 +574,7 @@ function soundLoop(cycleStartTime) {
         synth.setNote(0);
         synth.play(0, 0, cycleStartTime, "16n");
       }
-    this.interval =note_duration[index]/2000;// "16n";//quaverSeconds/8;
+    this.interval ="16n";// "16n";//quaverSeconds/8;
     this.bpm = bpm;
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
@@ -723,19 +723,19 @@ function DetunedOsc(){
   this.detune = 5;
 
   this.oscOne = new p5.Oscillator(midiToFreq(this.note),this.osctype);
-//  this.oscTwo = new p5.Oscillator(midiToFreq(this.note),'sine');
+  this.oscTwo = new p5.Oscillator(midiToFreq(this.note),'sine');
   this.oscOne.disconnect();
-  //this.oscTwo.disconnect();
+  this.oscTwo.disconnect();
   this.oscOne.start();
-//  this.oscTwo.start();
+  this.oscTwo.start();
 
   this.oscOne.connect(this.filter);
   //this.oscTwo.connect(this.filter);
 
   this.setNote = function(note){
       this.oscOne.freq(note);
-    //  this.oscTwo.freq(note/4);
-    //  this.oscOne.freq(this.oscTwo);
+      this.oscTwo.freq(note/4);
+      this.oscOne.freq(this.oscTwo);
   }
 
   this.setParams = function(params){
