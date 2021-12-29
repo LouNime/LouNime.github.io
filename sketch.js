@@ -30,7 +30,7 @@ var released = true;
 var maximum = 0;
 
 var presentation = true;
-var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
+var textPresentation = "";
 
 var canvaW = 0;
 var canvaH = 0;
@@ -47,8 +47,7 @@ window.addEventListener('load', (event) => {
 });
 
 
-function setup()
-{
+function setup(){
 
   let cnv = createCanvas(canvaW, canvaH);
 
@@ -58,7 +57,7 @@ function setup()
     synth = new PolySynth(8, DetunedOsc);
     analyzer = new p5.FFT();
 
-    textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
+
     textPresentation = "Hello! ";
 
 }
@@ -125,7 +124,7 @@ function tryDaphne()
     saveText();
     setTimeout(function(){
      //your code here
-u    serStartAudio();
+    serStartAudio();
      sloop.start()
    }, 1500);
 }
