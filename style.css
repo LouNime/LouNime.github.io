@@ -115,6 +115,7 @@ height: auto
 .fronte button:hover {
   background-color: #4CAF50; /* Green */
   color: white;
+  font-size: 20%;
 }
 .retro{
   opacity: 0;
