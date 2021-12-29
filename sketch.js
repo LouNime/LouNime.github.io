@@ -178,6 +178,7 @@ function startpresentation()
    //your code here
    textFunction();
    userStartAudio();
+   soundLoop();
   // sloop.start()
   }, 3000);
 }
@@ -187,6 +188,7 @@ function tryDaphne()
     setTimeout(function(){
      //your code here
 userStartAudio();
+soundLoop();
   //   sloop.start()
    }, 1500);
 }
