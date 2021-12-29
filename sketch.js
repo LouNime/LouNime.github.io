@@ -6,7 +6,6 @@ let analyzer;
 var total_letters=0;
 var scala = 0;
 
-var notes_length=0;
 var textout = new Array();
 var bpm=0;
 
@@ -26,7 +25,9 @@ var textPresentation = "";
 
 var canvaW = 0;
 var canvaH = 0;
-
+var notes = new Array();
+var note_velocity = new Array();
+var note_duration = new Array();
 window.addEventListener('load', (event) => {
 
   w = w*60/100;
@@ -96,30 +97,36 @@ function startpresentation()
   document.getElementById("r").style.visibility = "visible";
   document.getElementById("r").style.animation="fadeIn 1s linear 1 forwards";
   //document.getElementById("r").style.animation="fadeIn2 4s linear";
-
+  textFunction(notes,note_velocity,note_duration);
   getAudioContext().resume();
   setTimeout(function(){
-   //your code here
-   var notes = new Array();
-   var note_velocity = new Array();
-   var note_duration = new Array();
-   textFunction(notes,note_velocity,note_duration);
    userStartAudio();
-   sloop.start()
-  }, 3000);
+   if (sloop.isPlaying) {
+
+   } else {
+     userStartAudio();
+     sloop.start();
+   }
+
+ }, 2000);
 }
 function tryDaphne()
 {
-  var notes = new Array();
+  /*var notes = new Array();
   var note_velocity = new Array();
-  var note_duration = new Array();
+  var note_duration = new Array();*/
     saveText();
     textFunction(notes,note_velocity,note_duration);
     setTimeout(function(){
      //your code here
     userStartAudio();
-     sloop.start()
-   }, 1500);
+    if (sloop.isPlaying) {
+
+    } else {
+
+      sloop.start();
+    }
+   }, 500);
 }
 function windowResized() {
   w = document.getElementById("wrapper").offsetWidth;
@@ -135,10 +142,10 @@ function reset()
    textout = new Array();
 
  total_letters=0;
-  /*notes = new Array();
+  notes = new Array();
   note_velocity = new Array();
-  note_duration = new Array();*/
- notes_length=0;
+  note_duration = new Array();
+
 
 
 steps=0;
@@ -443,7 +450,7 @@ function convertToScale(x, notes,note_velocity,note_duration, fondamentale)
 
 }
 
-notes_length = notes.length;
+
 }
 function getADSR()
 {
@@ -549,9 +556,6 @@ function major(a)
    return progression;
 }
 
-
-//var cycleStartTime=0;
-
 function soundLoop(cycleStartTime) {
 
   if(notes.length != 0)
@@ -566,42 +570,34 @@ function soundLoop(cycleStartTime) {
       //cells[i].active = true;
       if (notes[index]!=2000) {
         // Play sound
-        var velocity = note_velocity[index]/127; // Between 0-1
-        var quaverSeconds =note_duration[index]/2000; // 8th note = quaver duration
+      //  var velocity = ; // Between 0-1
+        //var quaverSeconds =; // 8th note = quaver duration
         //
-        var freq1 = midiToFreq(notes[index]);
-       var freq=  Number(freq1.toFixed(2))*2;
+      //  var freq1 = midiToFreq(notes[index]);
+      // var freq=  Number(freq1.toFixed(2))*2;
 
         synth.setNote(freq);
-        synth.play(freq,velocity, cycleStartTime, quaverSeconds);
+        synth.play(midiToFreq(notes[index])*2, note_velocity[index]/127, cycleStartTime, note_duration[index]/2000);
 
       }
       else {
-        var velocity = note_velocity[index]/127; // Between 0-1
-        var quaverSeconds = note_duration[index]; // 8th note = quaver duration
-        var freq1 = midiToFreq(notes[index].toFixed(2));
-        var freq=  Number(freq1.toFixed(2));
         synth.setNote(0);
         synth.play(0, 0, cycleStartTime, "16n");
       }
-
-//  }
-//  sloop.stop();
 //  this.interval = "16n";//quaverSeconds/8;
-  this.bpm = bpm;
+    this.bpm = bpm;
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
    putText(index);
    index++;
-  if (index >= notes.length) {
+    if (index >= notes.length) {
     //synth.stop();
     this.stop(); // Stop the SoundLoop if we've reached the end of the song
     //synth.dispose();
     index=0;
-    cycleStartTime=0;
+
     if(presentation)
     {
-    //  pageScroll();
       document.getElementById("userinteraction").style.visibility = "visible";
       setVisibilityToLower();
       presentation = false;
@@ -632,14 +628,7 @@ localStorage.setItem("text", text_to_save); // save the item
 
 
 }
-function togglePlayPause() {
-  if (sloop.isPlaying) {
-    sloop.stop();
-  } else {
-    userStartAudio();
-    sloop.start();
-  }
-}
+
 function AudioVoice () {
 
   this.osctype = 'sine';
