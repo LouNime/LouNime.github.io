@@ -910,7 +910,10 @@ PolySynth.prototype.play = function (){
     this.poly_counter = this.poly_counter % this.num_voices;
 }
 PolySynth.prototype.stop = function (){
+
     this.voices[this.poly_counter].stop();
+    this.poly_counter -= 1;
+    this.poly_counter = this.poly_counter % this.num_voices;
 
 }
 PolySynth.prototype.setAdsr = function (a,d,s,r){
