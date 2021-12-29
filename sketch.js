@@ -305,7 +305,7 @@ function bpmCreator()
     }
 
     {
-	  bpm = total_letters/steps*30;//steps/total_letters*500;
+	  bpm = total_letters/steps*20;//steps/total_letters*500;
     }
 
 sloop.bpm = bpm*2;
