@@ -1,10 +1,8 @@
-
-
 var is_major = true;
 let notes = new Array();
 let note_velocity = new Array();
 var note_duration = new Array();
-
+var steps =0;
 
 var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -15,9 +13,8 @@ var scala = 0;
 var fondamentale = 60;
 var progression = [0, 2, 4, 5, 7, 9, 11];
 var notes_length=0;
-var ms=200;
+
 var textout = new Array();
-var counter = 0;
 
 
 var bpm=0;
@@ -25,7 +22,7 @@ var bpm=0;
 
 let   w = window.innerWidth;// document.getElementById("wrapper").offsetWidth;
 let  h = window.innerHeight;//document.getElementById("wrapper").offsetHeight;
-
+var numTimeSteps = 32;
 var timeStepCounter = 0;
 var sloop;
 var synth;
@@ -33,17 +30,15 @@ var text_to_save;
 var index = 0;
 var released = true;
 var maximum = 0;
-var att=0;
-var dec=0;
-var sus = 0;
-var rel = 0;
+
 var presentation = true;
 var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
 
 var canvaW = 0;
 var canvaH = 0;
+
 window.addEventListener('load', (event) => {
-  //setCookie(cookie_name, "disabled", -1);
+
   w = w*60/100;
 
   h = h*60/100;
@@ -53,25 +48,16 @@ window.addEventListener('load', (event) => {
 
 });
 
-window.addEventListener('reload', (event) => {
-  //setCookie(cookie_name, "disabled", -1);
-  //location.reload(true);
 
-});
 function setup()
 {
-//  createMetaTag();
-
-
 
   let cnv = createCanvas(canvaW, canvaH);
 
-
-    // cnv.mousePressed(playSound);
     cnv.parent("wrapper");
 
     sloop =  new p5.SoundLoop(soundLoop, "16n");
-    synth = new PolySynth();
+    synth = new PolySynth(8, DetunedOsc);
     analyzer = new p5.FFT();
 
     textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
@@ -82,14 +68,8 @@ function setup()
 function draw() {
   background(0);
 
-  // map mouseY to modulator freq between a maximum and minimum frequency
-//  fill(color(175,100,220));
-//  rect(59,59,399,399);
-  // analyze the waveform
-//  reverb.drywet(0.5);
  waveform = analyzer.waveform();
 
-  // draw the shape of the waveform
   stroke(255);
   strokeWeight(1);
   beginShape();
@@ -101,9 +81,6 @@ function draw() {
   endShape();
 
   strokeWeight(1);
-  // add a note about what's happening
-
-
 
 }
 function createMetaTag() {
@@ -115,12 +92,6 @@ function createMetaTag() {
   meta.parent(head);
 }
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
 
 window.setInterval(function() {
   var elem = document.getElementById('testouscita');
@@ -164,20 +135,16 @@ function reset()
   console.log("reset");
   document.getElementById("testouscita").innerHTML="";
   sloop =  new p5.SoundLoop(soundLoop, "16n");
-//  synth = new PolySynth(8, DetunedOsc);
+  synth = new PolySynth(8, DetunedOsc);
   index = 0;
    textout = new Array();
  maximum = 0;
  tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-
  total_letters=0;
   notes = new Array();
   note_velocity = new Array();
   note_duration = new Array();
-
- word = [];
-notes_length=0;
+ notes_length=0;
 fondamentale = 60;
 is_major = true;
 steps=0;
@@ -591,7 +558,7 @@ function soundLoop(cycleStartTime) {
   {
     //life();
 
-  //synth.setAdsr(0.001,0.1,0.2, 0.5);
+  synth.setAdsr(0.001,0.1,0.2, 0.5);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
 //  for (var i=0; i<notes.length; i++) {
@@ -606,7 +573,7 @@ function soundLoop(cycleStartTime) {
        var freq=  Number(freq1.toFixed(2))*2;
 
         synth.setNote(freq);
-        synth.play(freq,velocity, cycleStartTime, quaverSeconds);
+        synth.play(freq,velocity, cycleStartTime, "16n");
 
       }
       else {
@@ -620,7 +587,7 @@ function soundLoop(cycleStartTime) {
 
 //  }
 //  sloop.stop();
-//  this.interval = "16n";//quaverSeconds/8;
+  this.interval = "16n";//quaverSeconds/8;
   this.bpm = bpm;
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
