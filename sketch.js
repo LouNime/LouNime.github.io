@@ -106,7 +106,7 @@ function setup()
 
     //var s = new DetunedOsc();
     sloop =  new p5.SoundLoop(soundLoop, "16n");
-
+  synth = new PolySynth(16, DetunedOsc);
     analyzer = new p5.FFT();
   //  reverb = new p5.Reverb();
     //reverb.process(synth, 3, 20);
@@ -746,7 +746,7 @@ function major(a)
 //var cycleStartTime=0;
 
 function soundLoop(cycleStartTime) {
-  synth = new PolySynth(16, DetunedOsc);
+
   if(notes.length != 0){
     //life();
     get_percentage();
