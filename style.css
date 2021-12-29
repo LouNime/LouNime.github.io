@@ -59,11 +59,12 @@ z-index:1;
     to { opacity: 0; }
 }
 .outtext{
-  border-style: 5px solid #FFFF00;
+
+border: 5px solid #FFFF00;
 background-color: black;
 disabled = 'true';
 overflow: auto;
-/*font-family: "Pixeled";*/
+/*font-family: "Pixeled";*/ 
 margin:2%;
 color: #FFFF00;
 width: 100%;
