@@ -103,6 +103,7 @@ function startpresentation()
    var notes = new Array();
    var note_velocity = new Array();
    var note_duration = new Array();
+   var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
    textFunction();
    userStartAudio();
    sloop.start()
@@ -113,6 +114,7 @@ function tryDaphne()
   var notes = new Array();
   var note_velocity = new Array();
   var note_duration = new Array();
+  var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     saveText();
     setTimeout(function(){
      //your code here
@@ -165,7 +167,7 @@ function textFunction()
   else
   {
     total_letters=t.length;
-    var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
     for(x=0;x<t.length;x++)
     {
       if (t.charCodeAt(x)!=null && t.charCodeAt(x)!=127)
