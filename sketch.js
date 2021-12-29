@@ -1,36 +1,15 @@
 
-var accordatura = new Array();
+
 var is_major = true;
 let notes = new Array();
 let note_velocity = new Array();
 var note_duration = new Array();
-var steps =0;
-var is_loop = false;
-var instrument_linked = true;
+
 
 var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-let sequence;
-let polySynth;
+
 let analyzer;
 
-var resonance = new Array();
-var frequencyFilter = new Array();
-var context;
-var chords= new Array();
-var Mchord = [4,7];
-var mchord = [3,7];
-var dimichord = [3,7];
-var startChord=0;
-
-var soft_consonant=0;
-var hard_consonant=0;
-var vocals=0;
-var labiali=0;
-var dentali = 0;
-var linguali = 0;
-var gutturali = 0;
-var nasali = 0;
-var sibilanti = 0;
 var total_letters=0;
 var scala = 0;
 var fondamentale = 60;
@@ -38,16 +17,15 @@ var progression = [0, 2, 4, 5, 7, 9, 11];
 var notes_length=0;
 var ms=200;
 var textout = new Array();
-var is_pause = 0;
 var counter = 0;
-var wp =0;
- var type = new Array();
+
+
 var bpm=0;
-var is_playing=0;
+
 
 let   w = window.innerWidth;// document.getElementById("wrapper").offsetWidth;
 let  h = window.innerHeight;//document.getElementById("wrapper").offsetHeight;
-var numTimeSteps = 32;
+
 var timeStepCounter = 0;
 var sloop;
 //var synth;
@@ -60,12 +38,10 @@ var dec=0;
 var sus = 0;
 var rel = 0;
 var presentation = true;
-var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu"
+var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
 
 var canvaW = 0;
 var canvaH = 0;
-let reverb;
-var cookie_name;
 window.addEventListener('load', (event) => {
   //setCookie(cookie_name, "disabled", -1);
   w = w*60/100;
@@ -97,7 +73,7 @@ function setup()
     sloop =  new p5.SoundLoop(soundLoop, "16n");
 
     analyzer = new p5.FFT();
-  
+
     textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
     textPresentation = "Hello! ";
 
@@ -193,33 +169,19 @@ function reset()
    textout = new Array();
  maximum = 0;
  tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
- type = [];
- soft_consonant=0;
- hard_consonant=0;
- chords=[];
-startChord=0;
- vocals=0;
-labiali=0;
-dentali = 0;
-linguali = 0;
-gutturali = 0;
-nasali = 0;
-sibilanti = 0;
+
+
  total_letters=0;
   notes = new Array();
   note_velocity = new Array();
   note_duration = new Array();
- resonance = [];
- frequencyFilter = [];
- word = [];  notes_length=0;
+
+ word = [];
+notes_length=0;
 fondamentale = 60;
 is_major = true;
 steps=0;
-   wp=0;
-   att=0;
-   dec=0;
-   sus = 0;
-   rel = 0;
+
 }
 function textFunction()
 {
