@@ -779,7 +779,7 @@ function soundLoop(cycleStartTime) {
 
 //  }
 //  sloop.stop();
-  this.interval = "8n";//quaverSeconds/8;
+  this.interval = "16n";//quaverSeconds/8;
   this.bpm = bpm;
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
