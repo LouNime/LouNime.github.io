@@ -128,13 +128,13 @@ function draw() {
   // draw the shape of the waveform
   stroke(255);
   strokeWeight(1);
-  /*beginShape();
+  beginShape();
   for (let i = 0; i < waveform.length; i++) {
     let x = map(i, 0, waveform.length, 0, width);
     let y = map(waveform[i], -1, 1, -height / 4, height / 4);
     vertex(x, y + height / 2);
   }
-  endShape();*/
+  endShape();
 
   strokeWeight(1);
   // add a note about what's happening
