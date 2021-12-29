@@ -950,8 +950,8 @@ function DetunedOsc(){
   }
   this.stop = function(){
     console.log("ci sono");
-    this.oscOne.stop();
-    this.oscTwo.stop();
+    this.oscOne.disconnect();
+    this.oscTwo.disconnect();
   }
 }
 
