@@ -357,7 +357,7 @@ function searchTonalita(t)
   return maximum;
 }
 
-function convertToScale(x)
+function convertToScale(x, notes,note_velocity,note_duration)
 {
 
   var start_posn=97;
