@@ -100,6 +100,7 @@ function startpresentation()
   textFunction(notes,note_velocity,note_duration);
   getAudioContext().resume();
   setTimeout(function(){
+    console.log(notes);
    userStartAudio();
   sloop.start();
 
