@@ -103,7 +103,7 @@ function setup()
     sloop =  new p5.SoundLoop(soundLoop, "16n");
     synth = new PolySynth(6, DetunedOsc);
     analyzer = new p5.FFT();
-    reverb = new p5.Reverb();
+  //  reverb = new p5.Reverb();
     //reverb.process(synth, 3, 20);
     textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu";
     textPresentation = "Hello! ";
