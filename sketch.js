@@ -265,7 +265,7 @@ function searchTonalita(t)
 {
   var a = t;
   var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  for(j=0;j<in.length;j++)
+  for(j=0;j<a.length;j++)
   {
     if (a.charCodeAt(j)!=null && a.charCodeAt(j)!=127)
     {
