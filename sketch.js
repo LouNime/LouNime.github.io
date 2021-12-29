@@ -46,8 +46,8 @@ window.addEventListener('load', (event) => {
 
 });
 
-
-function setup(){
+function setup()
+{
 
   let cnv = createCanvas(canvaW, canvaH);
 
@@ -124,7 +124,7 @@ function tryDaphne()
     saveText();
     setTimeout(function(){
      //your code here
-    serStartAudio();
+    userStartAudio();
      sloop.start()
    }, 1500);
 }
