@@ -34,7 +34,7 @@ var textPresentation = "";
 
 var canvaW = 0;
 var canvaH = 0;
-
+var counter=0;
 window.addEventListener('load', (event) => {
 
   w = w*60/100;
@@ -558,6 +558,8 @@ function major(a)
 //var cycleStartTime=0;
 
 function soundLoop(cycleStartTime) {
+  counter++;
+  console.log("cicli di loop "+ counter.tostring());
   if(notes.length != 0)
   {
     //life();
