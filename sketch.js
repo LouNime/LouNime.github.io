@@ -79,7 +79,7 @@ window.addEventListener('load', (event) => {
 
 window.addEventListener('reload', (event) => {
   //setCookie(cookie_name, "disabled", -1);
-  location.reload(true);
+  //location.reload(true);
 
 });
 function setup()
