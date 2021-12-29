@@ -1,16 +1,15 @@
 
 var accordatura = new Array();
 var is_major = true;
-var notes = new Array();
-var note_velocity = new Array();
+let notes = new Array();
+let note_velocity = new Array();
 var note_duration = new Array();
 var steps =0;
 var is_loop = false;
 var instrument_linked = true;
 
-var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-let sequence;
-let polySynth;
+let tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
 let analyzer;
 
 var resonance = new Array();
@@ -37,7 +36,7 @@ var fondamentale = 60;
 var progression = [0, 2, 4, 5, 7, 9, 11];
 var notes_length=0;
 var ms=200;
-var textout = new Array();
+let textout = new Array();
 var is_pause = 0;
 var counter = 0;
 var wp =0;
@@ -49,9 +48,9 @@ let   w = window.innerWidth;// document.getElementById("wrapper").offsetWidth;
 let  h = window.innerHeight;//document.getElementById("wrapper").offsetHeight;
 var numTimeSteps = 32;
 var timeStepCounter = 0;
-var sloop;
-var synth;
-var text_to_save;
+let sloop;
+let synth;
+let text_to_save;
 var index = 0;
 var released = true;
 var maximum = 0;
@@ -60,7 +59,7 @@ var dec=0;
 var sus = 0;
 var rel = 0;
 var presentation = true;
-var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu"
+let textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parlare. Beh, non proprio parlare... Traduco in melodia le parole che ricevo. Prova anche tu"
 
 var canvaW = 0;
 var canvaH = 0;
