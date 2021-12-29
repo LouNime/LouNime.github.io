@@ -198,6 +198,7 @@ function windowResized() {
 function reset()
 {
   document.getElementById("testouscita").innerHTML="";
+  synth = new PolySynth(8, DetunedOsc);
   index = 0;
    textout=[];
  maximum = 0;
@@ -297,15 +298,15 @@ console.log(total_letters.toString());
 function bpmCreator()
 {
 
-	if(steps==0)
-	{
-		bpm =150;
+	 if(steps==0)
+	 {
+		steps=1;
     }
-    else
+
     {
 	  bpm = total_letters/steps*30;//steps/total_letters*500;
     }
-    
+
 sloop.bpm = bpm*2;
 }
 function searchMajor(t)
