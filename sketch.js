@@ -64,8 +64,7 @@ var textPresentation = "Hello! Mi chiamo Daphne, sono stata programmata per parl
 
 var canvaW = 0;
 var canvaH = 0;
-var AudioContext = window.AudioContext || window.webkitAudioContext;
-var audioCtx = new AudioContext();
+
 
 window.addEventListener('load', (event) => {
   w = w*60/100;
@@ -74,9 +73,6 @@ window.addEventListener('load', (event) => {
 
  canvaW = w*90/100;
  canvaH = h*60/100;
- AudioContext = window.AudioContext || window.webkitAudioContext;
- audioCtx = new AudioContext();
-
 
 });
 
@@ -830,7 +826,7 @@ function AudioVoice () {
   this.decay=0.25;
   this.sustain=0.95;
   this.release=0.25;
-  this.env = new p5.Env(this.attack,this.volume, this.decay,this.volume,  this.sustain, this.volume,this.release);
+  this.env = new p5.Envelope(this.attack,this.volume, this.decay,this.volume,  this.sustain, this.volume,this.release);
 
   this.filter = new p5.LowPass();
   this.filter.set(22050, 5);
