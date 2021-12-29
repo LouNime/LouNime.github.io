@@ -882,7 +882,7 @@ AudioVoice.prototype.setAdsr = function (a,d,s,r){
   this.decay=d;
   this.sustain=s;
   this.release=r;
-  this.env = new p5.Env(this.attack, this.decay,  this.sustain, this.release);
+  this.env = new p5.Envelope(this.attack, this.decay,  this.sustain, this.release);
   this.env.play(this.filter);
 }
 
