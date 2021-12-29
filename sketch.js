@@ -103,7 +103,6 @@ function startpresentation()
    var notes = new Array();
    var note_velocity = new Array();
    var note_duration = new Array();
-   var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
    textFunction();
    userStartAudio();
    sloop.start()
@@ -114,7 +113,6 @@ function tryDaphne()
   var notes = new Array();
   var note_velocity = new Array();
   var note_duration = new Array();
-  var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     saveText();
     setTimeout(function(){
      //your code here
@@ -168,35 +166,13 @@ function textFunction()
   {
     total_letters=t.length;
 
-    for(x=0;x<t.length;x++)
-    {
-      if (t.charCodeAt(x)!=null && t.charCodeAt(x)!=127)
-      {
-        searchScale(t.charCodeAt(x));
-        textout.push(String.fromCharCode(t.charCodeAt(x)));
-      }
-    }
-
-    var maximum = 0;
-    for(var i=0; i<tonalita.length-1; i++)
-        {
-          console.log(tonalita[i]);
-	       if(tonalita[maximum] > tonalita[i+1])
-	       {
-		      maximum = maximum;
-           }
-           else
-           {
-	          maximum = i+1;
-           }
-        }
-        var fondamentale = 60;
-        fondamentale += maximum;
+    var fondamentale = 60;
+    fondamentale += searchTonalita(t);
 
 
   var progression = [0, 2, 4, 5, 7, 9, 11];
   var scala =  searchMajor(total_letters);
-  major(scala);
+  progression = major(scala);
     for(x=0;x<t.length;x++)
     {
       if (t.charCodeAt(x)!=null && t.charCodeAt(x)!=127)
@@ -284,82 +260,102 @@ function searchMajor(t)
        }catch(e){}
        return a;
 }
-function searchScale(t)
+
+function searchTonalita(in)
 {
-	var x = t;
-
-
-	if (x==65||x==97||x==109||x==77)
-	{
-    if(x==65||x==97)
+  var tonalita = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  for(j=0;j<in.length;j++)
+  {
+    if (in.charCodeAt(j)!=null && in.charCodeAt(j)!=127)
     {
-        tonalita[0] +=0.2;
-    }
-    else {
-      tonalita[0] +=1;
+      var x = in.charCodeAt(j)
+      if (x==65||x==97||x==109||x==77)
+    	{
+        if(x==65||x==97)
+        {
+            tonalita[0] +=0.2;
+        }
+        else {
+          tonalita[0] +=1;
+        }
+      }
+      else if (x==66||x == 98 || x == 110||x==78)
+        {tonalita[1] +=1;}
+    	 else if (x==67||x == 99 || x == 111||x==79)
+                {
+                  if(x==79||x==111)
+                  {
+                      tonalita[2] +=0.2;
+                  }
+                  else {
+                    tonalita[2] +=1;
+                  }
+
+                }
+      else if (x==68||x == 100 || x == 112||x==80)
+                {
+                  tonalita[3] +=1;
+                }
+     else if (x==69||x == 101 || x == 113||x==81)
+                {
+                  if(x==69||x==101)
+                  {
+                      tonalita[4] +=0.2;
+                  }
+                  else {
+                    tonalita[4] +=1;
+                  }
+
+                }
+      else if (x==70||x == 102 || x == 114||x==82)
+                {
+                  tonalita[5] +=1;
+                }
+      else if (x==71||x == 103 || x == 115||x==83)
+                {
+                   tonalita[6] +=1;
+                }
+      else if (x==72||x == 104 || x == 116||x==84)
+                {
+                   tonalita[7] +=1;
+                }
+      else if (x==73||x == 105 || x == 117||x==85)
+                {
+                  tonalita[8] +=0.2;
+
+                }
+     else if (x==74||x == 106 || x == 118||x==86)
+                {
+                  tonalita[9] +=1;
+                }
+     else if (x==75||x == 107 || x == 119||x==87)
+                {
+                 tonalita[10] +=1;
+                }
+      else if (x==76||x == 108 || x == 120||x==88)
+                {
+                  tonalita[11] +=1;
+                }
+      textout.push(String.fromCharCode(in.charCodeAt(j)));
     }
   }
-    else if (x==66||x == 98 || x == 110||x==78)
-    {tonalita[1] +=1;}
-	 else if (x==67||x == 99 || x == 111||x==79)
-            {
-              if(x==79||x==111)
-              {
-                  tonalita[2] +=0.2;
-              }
-              else {
-                tonalita[2] +=1;
-              }
+  var maximum = 0;
+  for(var j=0; j<tonalita.length-1; j++)
+      {
 
-            }
-            else if (x==68||x == 100 || x == 112||x==80)
-            {
-              tonalita[3] +=1;
-            }
-            else if (x==69||x == 101 || x == 113||x==81)
-            {
-              if(x==69||x==101)
-              {
-                  tonalita[4] +=0.2;
-              }
-              else {
-                tonalita[4] +=1;
-              }
+       if(tonalita[maximum] > tonalita[j+1])
+       {
+        maximum = maximum;
+         }
+         else
+         {
+          maximum = j+1;
+         }
+      }
 
-            }
-            else if (x==70||x == 102 || x == 114||x==82)
-            {
-              tonalita[5] +=1;
-            }
-            else if (x==71||x == 103 || x == 115||x==83)
-            {
-               tonalita[6] +=1;
-            }
-            else if (x==72||x == 104 || x == 116||x==84)
-            {
-               tonalita[7] +=1;
-            }
-            else if (x==73||x == 105 || x == 117||x==85)
-            {
-              tonalita[8] +=0.2;
-
-            }
-            else if (x==74||x == 106 || x == 118||x==86)
-            {
-              tonalita[9] +=1;
-            }
-            else if (x==75||x == 107 || x == 119||x==87)
-            {
-             tonalita[10] +=1;
-            }
-            else if (x==76||x == 108 || x == 120||x==88)
-            {
-              tonalita[11] +=1;
-            }
-
-
-
+  return maximum;
 }
+
 function convertToScale(x)
 {
 
