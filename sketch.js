@@ -579,7 +579,7 @@ function soundLoop(cycleStartTime) {
        var freq=  Number(freq1.toFixed(2))*2;
 
         synth.setNote(freq);
-        synth.play(freq,velocity, cycleStartTime, "16n");
+        synth.play(freq,velocity, cycleStartTime, quaverSeconds);
 
       }
       else {
@@ -593,7 +593,7 @@ function soundLoop(cycleStartTime) {
 
 //  }
 //  sloop.stop();
-  this.interval = "16n";//quaverSeconds/8;
+//  this.interval = "16n";//quaverSeconds/8;
   this.bpm = bpm;
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
