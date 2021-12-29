@@ -759,7 +759,7 @@ function soundLoop(cycleStartTime) {
       if (notes[index]!=2000) {
         // Play sound
         var velocity = note_velocity[index]/127; // Between 0-1
-        var quaverSeconds =note_duration[index]/20; // 8th note = quaver duration
+        var quaverSeconds =note_duration[index]/2000; // 8th note = quaver duration
         //
         var freq1 = midiToFreq(notes[index]);
        var freq=  Number(freq1.toFixed(2))*2;
@@ -770,7 +770,7 @@ function soundLoop(cycleStartTime) {
       }
       else {
         var velocity = note_velocity[index]/127; // Between 0-1
-        var quaverSeconds = note_duration[index]*200; // 8th note = quaver duration
+        var quaverSeconds = note_duration[index]/200; // 8th note = quaver duration
         var freq1 = midiToFreq(notes[index].toFixed(2));
         var freq=  Number(freq1.toFixed(2));
         synth.setNote(0);
