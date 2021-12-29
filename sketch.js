@@ -925,6 +925,7 @@ PolySynth.prototype.setParams = function (params){
   this.voices[this.poly_counter].setParams(params);
 }
 PolySynth.prototype.dispose = function (){
+  console.log("cancello");
   delete this;
 }
 function DetunedOsc(){
