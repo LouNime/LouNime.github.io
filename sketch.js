@@ -750,7 +750,8 @@ function soundLoop(cycleStartTime) {
     //life();
     get_percentage();
    //getADSR();
-  synth.setAdsr(resonance[index]/200+att/200,resonance[index]/200+dec/200,resonance[index]/200+sus/200,resonance[index]/200+rel/200);
+  //synth.setAdsr(resonance[index]/200+att/200,resonance[index]/200+dec/200,resonance[index]/200+sus/200,resonance[index]/200+rel/200);
+  synth.setAdsr(0.25,0.25,1,0.25);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
 //  for (var i=0; i<notes.length; i++) {
@@ -765,7 +766,7 @@ function soundLoop(cycleStartTime) {
        var freq=  Number(freq1.toFixed(2))*2;
 
         synth.setNote(freq);
-        synth.play(freq,velocity, cycleStartTime, quaverSeconds);
+        synth.play(freq,velocity, cycleStartTime, "16n");
 
       }
       else {
@@ -774,7 +775,7 @@ function soundLoop(cycleStartTime) {
         var freq1 = midiToFreq(notes[index].toFixed(2));
         var freq=  Number(freq1.toFixed(2));
         synth.setNote(0);
-        synth.play(0, 0, cycleStartTime, quaverSeconds);
+        synth.play(0, 0, cycleStartTime, "4n");
       }
 
 //  }
