@@ -792,7 +792,7 @@ function soundLoop(cycleStartTime) {
     index=0;
     if(presentation)
     {
-      pageScroll();
+    //  pageScroll();
       document.getElementById("userinteraction").style.visibility = "visible";
       setVisibilityToLower();
         presentation = false;
