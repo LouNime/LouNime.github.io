@@ -30,6 +30,7 @@ var note_velocity = new Array();
 var note_duration = new Array();
 var i=0;
 var txt="Prima di iniziare, alza il volume del tuo dispositivo";
+//window.location.href='https://google.com';
 window.addEventListener('load', (event) => {
 
   w = w*60/100;
@@ -103,7 +104,7 @@ window.setInterval(function() {
 
 function startpresentation()
 {
-  window.location.href='https://google.com';
+
   document.getElementById("f").style.visibility = "hidden";
   document.getElementById("f").style.animation="fadeOut 0.5s linear1 forwards";
 
