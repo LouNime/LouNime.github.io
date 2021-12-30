@@ -38,7 +38,7 @@ window.addEventListener('load', (event) => {
 
  canvaW = w*90/100;
  canvaH = h*60/100;
- typeWriter();
+ //typeWriter();
 
 });
 function typeWriter() {
