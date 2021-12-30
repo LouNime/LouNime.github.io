@@ -36,9 +36,20 @@ window.addEventListener('load', (event) => {
 
  canvaW = w*90/100;
  canvaH = h*60/100;
-
+var i=0;
+var txt="Prima di iniziare, alza il volume del tuo dispositivo";
+setTimeout(function(){
+ //your code here
+typeWriter
+}, 500);
 });
-
+function typeWriter(i,txt) {
+  if (i < txt.length) {
+    document.getElementById("testoiniziale").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, 50);
+  }
+}
 function setup()
 {
 
