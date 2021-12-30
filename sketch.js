@@ -40,7 +40,7 @@ var i=0;
 var txt="Prima di iniziare, alza il volume del tuo dispositivo";
 setTimeout(function(){
  //your code here
-typeWriter
+typeWriter(i,txt);
 }, 500);
 });
 function typeWriter(i,txt) {
