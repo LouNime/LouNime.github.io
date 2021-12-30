@@ -1,6 +1,6 @@
 body {
   margin: 0;
-    
+  
     font-weight: 100;
     background: radial-gradient(#a29939,#1f1c10);
     -webkit-overflow-Y: hidden;
@@ -161,10 +161,10 @@ height: auto
 .light {
     position: absolute;
     width: 0px;
-    opacity: 1;
-    background-color: yellow;
+    opacity: .75;
+    background-color: white;
     box-shadow: #e9f1f1 0px 0px 20px 2px;
-    opacity: .5;
+    opacity: 0;
     top: 100vh;
     bottom: 0px;
     left: 0px;
@@ -278,8 +278,6 @@ height: auto
   transform: scale(0.9);
   left: 85%;
 }
-
-
 
 @-webkit-keyframes floatUp{
   0%{top: 100vh; opacity: 0;}
