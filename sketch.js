@@ -782,7 +782,7 @@ function DetunedOsc(){
   this.detune = 5;
 
   this.oscOne = new p5.Oscillator(midiToFreq(this.note),this.osctype);
-  this.oscTwo = new p5.Oscillator(midiToFreq(this.note),'sine');
+  this.oscTwo = new p5.Oscillator(midiToFreq(this.note),'square');
   this.oscOne.disconnect();
   this.oscTwo.disconnect();
   this.oscOne.start();
@@ -793,7 +793,7 @@ function DetunedOsc(){
 
   this.setNote = function(note){
       this.oscOne.freq(note);
-      this.oscTwo.freq(note*4);
+      this.oscTwo.freq(note/4);
       this.oscOne.freq(this.oscTwo);
   }
 
