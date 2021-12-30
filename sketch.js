@@ -197,7 +197,7 @@ function bpmCreator()
 	  bpm = total_letters/steps*20;//steps/total_letters*500;
     }
 
-sloop.bpm = bpm*2;
+sloop.bpm = Math.round(bpm*2);
 }
 function searchMajor(t)
 {
@@ -567,7 +567,7 @@ function soundLoop(cycleStartTime) {
       // var freq=  Number(freq1.toFixed(2))*2;
 
         synth.setNote(midiToFreq(notes[index])*2);
-        synth.play(midiToFreq(notes[index])*2, note_velocity[index]/127, cycleStartTime, note_duration[index]/2000);
+        synth.play(midiToFreq(notes[index])*2, note_velocity[index]/127, cycleStartTime, "16n");
 
       }
       else {
@@ -575,7 +575,7 @@ function soundLoop(cycleStartTime) {
         synth.play(0, 0, cycleStartTime, "16n");
       }
     this.interval ="16n";// "16n";//quaverSeconds/8;
-    this.bpm = bpm;
+    this.bpm = Math.round(bpm);
 
 //  timeStepCounter=(timeStepCounter + 1) % numTimeSteps;
    putText(index);
