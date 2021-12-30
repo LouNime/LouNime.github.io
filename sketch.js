@@ -596,7 +596,7 @@ function soundLoop(cycleStartTime) {
   {
     //life();
 
-  synth.setAdsr(0.001,0.1,0.2, 0.5);
+  synth.setAdsr(0.001,0.1,0.2, note_duration[index]/2000);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
 //  for (var i=0; i<notes.length; i++) {
