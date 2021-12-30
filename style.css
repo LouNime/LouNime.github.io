@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  
+
     font-weight: 100;
     background: radial-gradient(#a29939,#1f1c10);
     -webkit-overflow-Y: hidden;
@@ -83,6 +83,21 @@ color: #FFFF00;
 width: 100%;
 height:300px;
 }
+
+.outtext2{
+
+border: 5px solid #FFFF00;
+background-color: black;
+disabled = 'true';
+overflow: auto;
+/*font-family: "Pixeled";*/
+text-align: center;
+margin:2%;
+color: #FFFF00;
+width: 100%;
+height:auto;
+}
+
 .testa {
 font-family: "Pixeled";
 font-size: 8px;
