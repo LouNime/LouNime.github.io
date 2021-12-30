@@ -172,22 +172,27 @@ function textFunction()
 
   if(presentation==0)
   {
-    t = "Hello! ";
+    t = "Ciao! Il mio nome è Daphne.";
 
   }
   else if(presentation==1)
   {
-      t = "My name! ";
+      t = "Traduco le informazioni musicali intrinseche di un testo e genero dei suoni e delle melodie in base a queste.";
 
   }
   else if(presentation==2)
   {
-      t = "Is! ";
+      t = "Sono stata inventata e realizzata da Lou Nime come strumento artistico utilizzato in fase di composizione del suo ultimo album.";
 
   }
   else if(presentation==3)
   {
-      t = "Daphne! ";
+      t = "Il mio nome è ispirato a Daphne Oram, compositrice avanguardista, pioniera della musica elettronica.";
+
+  }
+  else if(presentation==4)
+  {
+      t = "Questa è la mia versione lite adattata per il web, provala anche tu!";
 
   }
   else {
@@ -627,12 +632,12 @@ function soundLoop(cycleStartTime) {
     index=0;
     presentation++;
     document.getElementById("userinteraction2").disabled = false;
-    if(presentation==4)
+    if(presentation==5)
     {
       document.getElementById("userinteraction").style.visibility = "visible";
       setVisibilityToLower();
     }
-    else if(presentation<4){
+    else if(presentation<5){
       {
         continuepresentation();
       }
@@ -644,7 +649,7 @@ function soundLoop(cycleStartTime) {
 
 function skipPresentation()
 {
-  presentation=4;
+  presentation=5;
   document.getElementById("userinteraction").style.visibility = "visible";
   setVisibilityToLower();
   sloop.stop();
