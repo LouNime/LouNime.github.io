@@ -581,11 +581,11 @@ function soundLoop(cycleStartTime) {
    index++;
     if (index >= notes.length) {
     //synth.stop();
-    document.getElementById("userinteraction2").disabled = false;
+
     this.stop(); // Stop the SoundLoop if we've reached the end of the song
     //synth.dispose();
     index=0;
-
+    document.getElementById("userinteraction2").disabled = false;
     if(presentation)
     {
       document.getElementById("userinteraction").style.visibility = "visible";
