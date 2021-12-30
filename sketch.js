@@ -238,7 +238,7 @@ function bpmCreator()
     }
 
     {
-	  bpm = total_letters/steps*20;//steps/total_letters*500;
+	  bpm = total_letters/steps*30;//steps/total_letters*500;
     }
 
 sloop.bpm = Math.round(bpm*2);
@@ -596,7 +596,7 @@ function soundLoop(cycleStartTime) {
   {
     //life();
 
-  synth.setAdsr(note_duration[index]/20000,0.1,0.2, note_duration[index]/2000);
+  synth.setAdsr(note_duration[index]/2000,0.1,0.2, note_duration[index]/2000);
   var d = int(random(1,12));
    synth.setParams([d,1,5]);
 //  for (var i=0; i<notes.length; i++) {
