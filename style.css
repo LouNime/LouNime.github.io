@@ -164,7 +164,7 @@ height: auto
     opacity: 1;
     background-color: yellow;
     box-shadow: #e9f1f1 0px 0px 20px 2px;
-    opacity: 0;
+    opacity: .5;
     top: 100vh;
     bottom: 0px;
     left: 0px;
@@ -279,9 +279,7 @@ height: auto
   left: 85%;
 }
 
-button:focus{
-  outline: none;
-}
+
 
 @-webkit-keyframes floatUp{
   0%{top: 100vh; opacity: 0;}
