@@ -107,9 +107,8 @@ function startpresentation()
 }
 function tryDaphne()
 {
-  /*var notes = new Array();
-  var note_velocity = new Array();
-  var note_duration = new Array();*/
+
+  document.getElementById("userinteraction2").disabled = true;
     saveText();
     textFunction();
     setTimeout(function(){
@@ -582,6 +581,7 @@ function soundLoop(cycleStartTime) {
    index++;
     if (index >= notes.length) {
     //synth.stop();
+    document.getElementById("userinteraction2").disabled = false;
     this.stop(); // Stop the SoundLoop if we've reached the end of the song
     //synth.dispose();
     index=0;
