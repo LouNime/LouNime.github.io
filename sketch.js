@@ -20,14 +20,16 @@ var text_to_save;
 var index = 0;
 
 
-var presentation = true;
-var textPresentation = "";
+var presentation = 0;
+
 
 var canvaW = 0;
 var canvaH = 0;
 var notes = new Array();
 var note_velocity = new Array();
 var note_duration = new Array();
+var i=0;
+var txt="Prima di iniziare, alza il volume del tuo dispositivo";
 window.addEventListener('load', (event) => {
 
   w = w*60/100;
@@ -36,13 +38,10 @@ window.addEventListener('load', (event) => {
 
  canvaW = w*90/100;
  canvaH = h*60/100;
-var i=0;
-var txt="Prima di iniziare, alza il volume del tuo dispositivo";
-
-   typeWriter(i,txt);
+ typeWriter();
 
 });
-function typeWriter(i,txt) {
+function typeWriter() {
   if (i < txt.length) {
     document.getElementById("testoiniziale").innerHTML += txt.charAt(i);
     i++;
@@ -52,7 +51,7 @@ function typeWriter(i,txt) {
 function setup()
 {
 
-  let cnv = createCanvas(canvaW, canvaH);
+   let cnv = createCanvas(canvaW, canvaH);
 
     cnv.parent("wrapper");
 
@@ -61,7 +60,10 @@ function setup()
     analyzer = new p5.FFT();
 
 
-    textPresentation = "Hello! ";
+
+
+
+
 
 }
 
@@ -115,6 +117,16 @@ function startpresentation()
   sloop.start();
  }, 2000);
 }
+function continuepresentation()
+{
+  textFunction();
+  getAudioContext().resume();
+
+  setTimeout(function(){
+   userStartAudio();
+  sloop.start();
+}, 500);
+}
 function tryDaphne()
 {
 
@@ -155,9 +167,25 @@ function textFunction()
 
   reset();
   var t="";
-  if(presentation)
+
+  if(presentation==0)
   {
-    t = textPresentation;
+    t = "Hello! ";
+
+  }
+  else if(presentation==1)
+  {
+      t = "My name! ";
+
+  }
+  else if(presentation==2)
+  {
+      t = "Is! ";
+
+  }
+  else if(presentation==3)
+  {
+      t = "Daphne! ";
 
   }
   else {
@@ -595,12 +623,17 @@ function soundLoop(cycleStartTime) {
     this.stop(); // Stop the SoundLoop if we've reached the end of the song
     //synth.dispose();
     index=0;
+    presentation++;
     document.getElementById("userinteraction2").disabled = false;
-    if(presentation)
+    if(presentation==4)
     {
       document.getElementById("userinteraction").style.visibility = "visible";
       setVisibilityToLower();
-      presentation = false;
+    }
+    else {
+      {
+        continuepresentation();
+      }
     }
   }
 
