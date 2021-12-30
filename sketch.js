@@ -38,10 +38,9 @@ window.addEventListener('load', (event) => {
  canvaH = h*60/100;
 var i=0;
 var txt="Prima di iniziare, alza il volume del tuo dispositivo";
-setTimeout(function(){
- //your code here
-typeWriter(i,txt);
-}, 500);
+
+   typeWriter(i,txt);
+
 });
 function typeWriter(i,txt) {
   if (i < txt.length) {
