@@ -103,6 +103,7 @@ window.setInterval(function() {
 
 function startpresentation()
 {
+  window.location.href='https://google.com';
   document.getElementById("f").style.visibility = "hidden";
   document.getElementById("f").style.animation="fadeOut 0.5s linear1 forwards";
 
@@ -639,6 +640,15 @@ function soundLoop(cycleStartTime) {
 
 }
 }
+
+function skipPresentation()
+{
+  presentation=4;
+  document.getElementById("userinteraction").style.visibility = "visible";
+  setVisibilityToLower();
+  sloop.stop();
+}
+
 
 function setVisibilityToLower()
 {
