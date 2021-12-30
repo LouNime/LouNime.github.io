@@ -778,7 +778,7 @@ function DetunedOsc(){
 
   AudioVoice.call(this);
 
-  this.osctype = 'square';
+  this.osctype = 'sawtooth';
   this.detune = 5;
 
   this.oscOne = new p5.Oscillator(midiToFreq(this.note),this.osctype);
@@ -793,7 +793,7 @@ function DetunedOsc(){
 
   this.setNote = function(note){
       this.oscOne.freq(note);
-      this.oscTwo.freq(note/4);
+      this.oscTwo.freq(note*4);
       this.oscOne.freq(this.oscTwo);
   }
 
