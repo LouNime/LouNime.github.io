@@ -630,7 +630,7 @@ function soundLoop(cycleStartTime) {
       document.getElementById("userinteraction").style.visibility = "visible";
       setVisibilityToLower();
     }
-    else {
+    else if(presentation<4){
       {
         continuepresentation();
       }
