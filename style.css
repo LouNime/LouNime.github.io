@@ -52,6 +52,24 @@ margin: 2%;
 flex:30%;
 
 }
+.column3 button{
+  background-color:#FFFF00;
+  color: black;
+  font-family: "Pixeled";
+
+    font-size: 80%;
+ margin:auto;
+  display: block;
+  transition-duration: 0.4s;
+}
+.column3 button:hover {
+  background-color: #af4c89; /* Green */
+  color: white;
+
+}
+#skip{visibility: hidden;}
+#lounime{visibility: hidden;}
+#daphneoram{visibility: hidden;}
 #wrapper {flex:100%; align-items: center;}
 
 .lower {

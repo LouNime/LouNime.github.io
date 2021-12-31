@@ -173,6 +173,7 @@ function textFunction()
   if(presentation==0)
   {
     t = "Ciao! Il mio nome è Daphne.";
+    document.getElementById("skip").style.visibility = "visible";
 
   }
   else if(presentation==1)
@@ -183,11 +184,14 @@ function textFunction()
   else if(presentation==2)
   {
       t = "Sono stata inventata e realizzata da Lou Nime come strumento artistico utilizzato in fase di composizione del suo ultimo album.";
+      document.getElementById("lounime").style.visibility = "visible";
+
 
   }
   else if(presentation==3)
   {
       t = "Il mio nome è ispirato a Daphne Oram, compositrice avanguardista, pioniera della musica elettronica.";
+      document.getElementById("daphneoram").style.visibility = "visible";
 
   }
   else if(presentation==4)
@@ -658,7 +662,14 @@ function skipPresentation()
   sloop.stop();
 }
 
-
+function gotoDaphne()
+{
+  window.location.href='https://google.com';
+}
+function gotoLouNime()
+{
+  window.location.href='https://google.com';
+}
 function setVisibilityToLower()
 {
   document.getElementById("userinteraction").style.animation="fadeIn 4s linear 1s 1 forwards";
