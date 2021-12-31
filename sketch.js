@@ -638,6 +638,7 @@ function soundLoop(cycleStartTime) {
     document.getElementById("userinteraction2").disabled = false;
     if(presentation==5)
     {
+        document.getElementById("skip").style.visibility = "hidden";
       document.getElementById("userinteraction").style.visibility = "visible";
       setVisibilityToLower();
     }
