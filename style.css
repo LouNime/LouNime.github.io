@@ -193,9 +193,9 @@ height: auto
 
 .light {
     position: absolute;
-    width: 3%;
+    width: 1%;
     opacity: 1;
-    background-color: white;
+    background-color: #FFFF00;
   /*  box-shadow: yellow 0px 0px 20px 2px;
     opacity: 0;*/
     top: 100vh;
@@ -203,6 +203,7 @@ height: auto
     left: 0px;
     right: 0px;
     margin: auto;
+    z-index:-1;
 }
 
 .x1{
