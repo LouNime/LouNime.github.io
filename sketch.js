@@ -104,8 +104,8 @@ window.setInterval(function() {
 
 function startpresentation()
 {
-
   document.getElementById("f").style.visibility = "hidden";
+  document.getElementById("f").style.height = "0px";
   document.getElementById("f").style.animation="fadeOut 0.5s linear1 forwards";
 
   document.getElementById("r").style.visibility = "visible";
@@ -639,7 +639,10 @@ function soundLoop(cycleStartTime) {
     }
     else if(presentation<5){
       {
-        continuepresentation();
+        setTimeout(function(){
+          continuepresentation();
+        }, 1500);
+
       }
     }
   }
