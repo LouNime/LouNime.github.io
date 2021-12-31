@@ -804,7 +804,7 @@ function DetunedOsc(){
 
   AudioVoice.call(this);
 
-  this.osctype = 'sawtooth';
+  this.osctype = 'sine';
   this.detune = 5;
 
   this.oscOne = new p5.Oscillator(midiToFreq(this.note),this.osctype);
